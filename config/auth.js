@@ -5,7 +5,7 @@ const auth = async (req, res, next) => {
     try {
         const token = req.cookies.jwt;
         if (token !== undefined) {
-            const verifyUser = jwt.verify(token, "mynameisshrey");
+            const verifyUser = jwt.verify(token, "mynameisshreyash");
             console.log(verifyUser);
             const user = await Userdetail.findOne({ _id: verifyUser._id });
             console.log(user.name);
