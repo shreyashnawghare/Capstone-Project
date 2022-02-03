@@ -954,21 +954,31 @@ button{
     </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
 <script>
-    function createPDF(){
+     function createPDF(){
         var doc = new jsPDF();
-        doc.text("Name : "+"<%= user.name %>",10,10);
-        doc.text("About",100,20);
-        doc.text(document.getElementById("aboutpara").innerText, 10, 30);
-        doc.text("Key Roles : "+"<%= user.role[0].role1 %>",10,60);
-        doc.text("<%= user.role[0].role2 %>",40,70);
-        doc.text("<%= user.role[0].role3 %>",40,80);
-        doc.text("Top Technical Skills : "+"<%= user.skill1%>",10,90);
-        doc.text("<%= user.skill2 %>",65,100);
-        doc.text("<%= user.skill3 %>",65,110);
-        doc.text("<%= user.skill4 %>",65,120);
-        doc.text("<%= user.skill5 %>",65,130);
+        doc.text("RESUME",100,10);
+        doc.text(""+"<%= user.name %>",10,30);
+        doc.text("About :",10,50);
+        doc.text(document.getElementById("aboutpara").innerText, 10,60);
+        doc.text("Key Roles : 1. "+"<%= user.role[0].role1 %>",10,90);
+        doc.text("2. "+"<%= user.role[0].role2 %>",40,100);
+        doc.text("3. "+"<%= user.role[0].role3 %>",40,110);
 
+        doc.text("Skills :        "+" 1. <%= user.skill1%>",10,130);
+        doc.text("2. "+"<%= user.skill2 %>",40,140);
+        doc.text("3. "+"<%= user.skill3 %>",40,150);
+        doc.text("4. "+"<%= user.skill4 %>",40,160);
+        doc.text("5. "+"<%= user.skill5 %>",40,170);
 
+        doc.text("Education : 1. "+"Bachelor Of Engineering",10,190);
+        doc.text(""+"<%= user.universityname %>",40,200);
+        doc.text("<%= user.universityyearjoin %>"+-"<%= user.universityyearleft %>",40,210);
+        doc.text("2. "+"H.S.C",40,230);
+        doc.text(""+"<%= user.collegename %>",40,240);
+        doc.text("<%= user.collegeyearjoin %>"+-"<%= user.collegeyearleft %>",40,250);
+        // doc.text("3."+"S.S.C",40,250);
+        // doc.text("<%= user.schoolnamename %>",260);
+        // doc.text("<%= user.schoolyearjoin %>"+-"<%= user.schoolyearleft %>",40,270);
         doc.save("<%= user.name %>.pdf");
     }
 </script>
